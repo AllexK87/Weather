@@ -1,0 +1,194 @@
+/* FONTS */
+@import 'fonts';
+
+/* RESET STYLE */
+@import 'reset';
+
+// VARIABLES
+@import 'variables';
+
+// MIXINS
+@import 'mixins';
+
+// FUNCTION
+@import 'function';
+
+/* ============================== START */
+:root{
+    --color-search: #eee;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.2;
+}
+// ==============================
+
+ 
+/* ============================== BLOCK */
+section {
+    max-width: 500px;
+    padding: Pix-Rem(20) Pix-Rem(30);
+    margin: 0 auto;
+}
+// ==============================
+
+
+/* ============================== WRAPPER */
+// ==============================
+
+
+/* ============================== HEADER */
+// ==============================
+
+
+/* ============================== BURGER */
+// ==============================
+
+
+/* ============================== MAIN */
+.main {
+    padding-top: Pix-Rem(150);
+}
+
+.box {
+    border: 1px solid black;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: Pix-Rem(50);
+
+    .search_field {
+        background: var(--color-search);
+        padding: 0.5rem 1rem;
+        width: 300px;
+        border-radius: 20px;
+        display: block;
+    }
+
+    .search_btn {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        font-size: 20px;
+        background: var(--color-search);
+    }
+}
+
+.weather {
+    display: flex;
+    flex-direction: column;
+
+    .citi {
+        font-size: AdaptiveSize(20, 40);
+        text-transform: uppercase;
+        font-weight: 650;
+        text-align: center;
+    }
+
+    .temp {
+        font-size: AdaptiveSize(30, 60);
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .weather__details {
+
+        .weather__details__description{
+            display: flex;
+            align-items: center;
+            gap: Pix-Rem(30);
+            margin-bottom: 50px;
+
+            .weather__details__description__icon {
+                width: 100px;
+                object-fit: cover;
+            }
+
+            .weather__details__description__txt {
+                font-size: Pix-Rem(20);
+                font-weight: 600;
+            }
+        }
+
+        .weather__details__wind {
+            display: flex;
+            align-items: center;
+            gap: Pix-Rem(30);
+
+            &__icon{
+                width: 50px;
+                object-fit: cover;
+            }
+
+            &__txt {
+                font-size: Pix-Rem(20);
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+
+
+// .weather_icon {
+//     width: 250px;
+//     display: block;
+// }
+// ==============================
+
+
+/* ==============================  */
+// ==============================
+
+/* ==============================  */
+// ==============================
+
+
+/* ==============================  */
+// ==============================
+
+
+/* ==============================  */
+// ==============================
+
+
+/* ==============================  */
+// ==============================
+
+
+/* ==============================  */
+// ==============================
+
+
+// ============================== 
+// @media screen and (max-width: 991px) {
+// стили для больших планшетов - начало
+// }
+  
+// @media screen and (max-width: 767px) {
+// стили для средних планшетов - начало
+// }
+
+// @media screen and (max-width: 479px) {
+// стили для телефонов - начало
+// }
+// ============================== 
+
+
+// ============================== BURGER
+// body.lock {
+//   overflow: hidden; // для меню бургер. не прокручивается
+// }
+// .menu {
+//   overflow: auto; // для прокрутки меню с бургером
+
+//   @media ( min-width: 800) {
+//     overflow: visible; // для прокрутки меню с бургером
+//   }
+// }
+// ==============================
