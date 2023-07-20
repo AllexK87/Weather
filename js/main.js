@@ -10,12 +10,18 @@ async function checkWeather() {
     console.log(data)
 
     document.querySelector('.citi').innerHTML = citi
-    document.querySelector('.temp').innerHTML = Math.round(data.main.temp) + '°C'
-    document.querySelector('.weather__details__description__txt').innerHTML = data.weather[0].description
-    document.querySelector('.weather__details__wind__txt').innerHTML = data.wind.speed + ' м/с'
+
+    document.querySelector('.weather__temp').innerHTML = Math.round(data.main.temp) + '°C'
 
     let icon = data.weather[0].main
-    document.querySelector('.weather__details__description__icon').src=`img/${icon}.gif`
+    document.querySelector('#description-icon').src=`img/${icon}.png`
+    document.querySelector('.weather__description-txt').innerHTML = data.weather[0].description
+
+
+    document.querySelector('.weather__description-feels').innerHTML = `Ощущается как ${data.main.feels_like} °C`
+    // document.querySelector('.weather__details__wind__txt').innerHTML = data.wind.speed + ' м/с'
+
+
 
     // // Координаты
     // let lat = data.coord.lat
@@ -31,8 +37,8 @@ async function checkWeather() {
 checkWeather()
 
 searcherBtn.onclick = () => {
-    citi = document.querySelector('#citi').value
+    citi = document.querySelector('#searchField').value
     url = 'https://api.openweathermap.org/data/2.5/weather?q=' + citi +'&units=metric&lang=ru&appid=2e86a32f9d29e13d3916a7ca8be036ad'
     checkWeather()
-    document.querySelector('#citi').value = ''
+    document.querySelector('#searchField').value = ''
 }
