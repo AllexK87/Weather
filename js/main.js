@@ -17,11 +17,11 @@ async function checkWeather() {
     document.querySelector('#description-icon').src=`img/${icon}.png`
     document.querySelector('.weather__description-txt').innerHTML = data.weather[0].description
 
-
     document.querySelector('.weather__description-feels').innerHTML = `Ощущается как ${data.main.feels_like} °C`
-    // document.querySelector('.weather__details__wind__txt').innerHTML = data.wind.speed + ' м/с'
+    
+    document.querySelector('.detalis__wind__txt').innerHTML = `Скорость ветра ${data.wind.speed} м/с`
 
-
+    document.querySelector('.detalis__humidity__txt').innerHTML = `Влажность ${data.main.humidity} %`
 
     // // Координаты
     // let lat = data.coord.lat
