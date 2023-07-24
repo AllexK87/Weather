@@ -18,6 +18,7 @@
     --color-search: #eee;
     --color-grey: #262833;
     --color-bg: var(--color-grey);
+    --color-card: #d5d7da0c;
 }
 
 body {
@@ -171,7 +172,7 @@ section {
 
         &__img {
             position: relative;
-            padding: 0 50px 50px 0;
+            padding: 0 30px 30px 0;
             
             img {
                 position: absolute;
@@ -184,14 +185,50 @@ section {
         }
     }
 }
-
-// .weather__humidity{
-//     grid-column: 3/4;
-//     grid-row: 4/5;
-// }
 // ==============================
 
-/* ==============================  */
+/* ==============================  forecast*/
+.forecast{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: Pix-Rem(20);
+    // width: 100%;
+
+    &__card {
+        background: var(--color-card);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: Pix-Rem(20) Pix-Rem(10);
+
+        &__imgDescription {
+            position: relative;
+
+            &__img {
+
+                width: 75px;
+                object-fit: cover;
+            }
+        }
+
+        &__wind, 
+        &__humidity {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: Pix-Rem(20);
+
+            img {
+                width: 30px;
+            }
+        }
+
+        &__wind {
+            margin: Pix-Rem(10) 0;
+        }
+    }
+}
 // ==============================
 
 
