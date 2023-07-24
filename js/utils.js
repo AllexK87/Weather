@@ -1,4 +1,4 @@
-let citi = 'омск'
+let citi = 'Демидов'
 let url = 'https://api.openweathermap.org/data/2.5/weather?q=' + citi +'&units=metric&lang=ru&appid=2e86a32f9d29e13d3916a7ca8be036ad'
 
 
@@ -110,6 +110,10 @@ async function checkWeather() {
      */            
 }
 
+function startShowWather () {
+    checkWeather()
+}
+
 function showWather (){
     citi = document.querySelector('#searchField').value
     url = 'https://api.openweathermap.org/data/2.5/weather?q=' + citi +'&units=metric&lang=ru&appid=2e86a32f9d29e13d3916a7ca8be036ad'
@@ -117,4 +121,7 @@ function showWather (){
     document.querySelector('#searchField').value = ''
 }
 
-export default showWather
+export  {
+    startShowWather, 
+    showWather
+}

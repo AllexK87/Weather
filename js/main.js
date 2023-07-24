@@ -1,5 +1,9 @@
-import showWather from './utils.js'
-// checkWeather()
+import {
+    startShowWather, 
+    showWather
+} from './utils.js'
+
+startShowWather()
 
 /*
 * ===== Кнопка поиска
