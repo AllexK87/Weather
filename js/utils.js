@@ -78,11 +78,18 @@ async function checkWeather() {
         поискКарточкиПрогноза.append(карточкаПрогнозТемпература)
     }
 
-    // Сдесь должна быть картинка
-    /** <div class="forecast__card__imgDescription">
-            <img src="img/Clear.png" alt="солнце" class="forecast__card__imgDescription__img">
-        </div>
-     */
+    // Добавляем картинку в карточку прогноза
+    for (let index = 0; index < количествоЗначенийМассива; index++) {
+        let поискКарточкиПрогноза = document.querySelector(`[data-id = "${index}"]`)
+        
+        let карточкаПрогнозКартинка = document.createElement('img')
+        карточкаПрогнозКартинка.className = 'forecast__card__imgDescription'
+        let icon = dataForecast.list[index].weather[0].main
+        карточкаПрогнозКартинка.src = `img/${icon}.png`
+        
+        поискКарточкиПрогноза.append(карточкаПрогнозКартинка)
+    }
+
 
     // Добавляем описание погоды в карточку прогноза
     for (let index = 0; index < количествоЗначенийМассива; index++) {
@@ -95,19 +102,47 @@ async function checkWeather() {
         поискКарточкиПрогноза.append(карточкаПрогнозОписаниеПогоды)
     }
 
-    // Сдесь должен быть ветер
-    /** <div class="forecast__card__wind">
-            <img class="forecast__card__wind__img" src="img/wind.png" alt="Скорость ветра">
-            <p class="forecast__card__wind__speed">3 м/с</p>
-        </div>
-     */
+    // Добавляем скорость ветра в карточку прогноза
+    for (let index = 0; index < количествоЗначенийМассива; index++) {
+        let поискКарточкиПрогноза = document.querySelector(`[data-id = "${index}"]`)
+        
+        let ветер = document.createElement('div')
+        ветер.className = 'forecast__card__wind'
+        
+        let ветерКартинка = document.createElement('img')
+        ветерКартинка.className = 'forecast__card__wind__img'
+        ветерКартинка.src = 'img/wind.png'
+        ветерКартинка.alt = "Скорость ветра"
 
-    // Сдесь должна быть влажность
-    /** <div class="forecast__card__humidity">
-            <img class="forecast__card__humidity__img" src="img/humidity.png" alt="Влажность">
-            <p class="forecast__card__wind__speed">70 %</p>
-        </div>
-     */            
+        let ветерСкорость = document.createElement('p')
+        ветерСкорость.className = 'forecast__card__wind__speed'
+        ветерСкорость.innerHTML = `${dataForecast.list[index].wind.speed} м/с`
+
+        поискКарточкиПрогноза.append(ветер)
+        ветер.append(ветерКартинка)
+        ветер.append(ветерСкорость)
+    }
+
+    // Добавляем процент влажности в карточку прогноза
+        for (let index = 0; index < количествоЗначенийМассива; index++) {
+            let поискКарточкиПрогноза = document.querySelector(`[data-id = "${index}"]`)
+            
+            let влажность = document.createElement('div')
+            влажность.className = 'forecast__card__humidity'
+            
+            let влажностьКартинка = document.createElement('img')
+            влажностьКартинка.className = 'forecast__card__humidity__img'
+            влажностьКартинка.src = 'img/humidity.png'
+            влажностьКартинка.alt = "Влажность"
+    
+            let влажностьЗначение = document.createElement('p')
+            влажностьЗначение.className = 'forecast__card__wind__speed'
+            влажностьЗначение.innerHTML = `${dataForecast.list[index].main.humidity} %`
+    
+            поискКарточкиПрогноза.append(влажность)
+            влажность.append(влажностьКартинка)
+            влажность.append(влажностьЗначение)
+        }          
 }
 
 function startShowWather () {

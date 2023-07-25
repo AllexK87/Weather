@@ -200,15 +200,26 @@ section {
         flex-direction: column;
         align-items: center;
         padding: Pix-Rem(20) Pix-Rem(10);
+        box-shadow: 3px 3px 8px #000000;
+
+        &__temp {
+            font-size: AdaptiveSize(20, 25);
+            font-weight: 600;
+            margin: Pix-Rem(10) 0;
+        }
 
         &__imgDescription {
             position: relative;
+            width: 75px;
+            object-fit: cover;
+            
+        }
 
-            &__img {
-
-                width: 75px;
-                object-fit: cover;
-            }
+        &__description {
+            margin-bottom: Pix-Rem(10);
+            font-size: 18px;
+            font-weight: 300;
+            text-align: center;
         }
 
         &__wind, 
@@ -220,7 +231,13 @@ section {
             gap: Pix-Rem(20);
 
             img {
-                width: 30px;
+                width: 20px;
+                opacity: 0.3;
+            }
+
+            p {
+                font-size: Pix-Rem(14);
+                font-weight: 300;
             }
         }
 
