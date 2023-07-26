@@ -55,14 +55,37 @@ async function checkWeather() {
 
     // Сдесь должен быть день недели
     // <p class="forecast__card__day">Воскреенье</p> 
+    for (let index = 0; index < количествоЗначенийМассива; index++) {
+        let поискКарточкиПрогноза = document.querySelector(`[data-id = "${index}"]`)
+        
+        let val = dataForecast.list[index].dt_txt;
+
+        let valYear = val.substring(0, 4)
+        let valMonth = val.substring(5, 7) - 1
+        let valDay = val.substring(8, 10)
+
+        let date = new Date(valYear, valMonth, valDay)
+
+        let dayWeek = getWeekDay(date)
+        
+        let деньНедели = document.createElement('p')
+        деньНедели.className = 'forecast__card__day'
+        деньНедели.innerHTML = dayWeek
+        
+        поискКарточкиПрогноза.append(деньНедели)
+    }
 
     // Добавляем время в карточку прогноза
     for (let index = 0; index < количествоЗначенийМассива; index++) {
         let поискКарточкиПрогноза = document.querySelector(`[data-id = "${index}"]`)
+
+        let val = dataForecast.list[index].dt_txt;
+
+        let valTime = val.substring(11, 16)
         
         let карточкаПрогнозВремя = document.createElement('p')
         карточкаПрогнозВремя.className = 'forecast__card__time'
-        карточкаПрогнозВремя.innerHTML = dataForecast.list[index].dt_txt
+        карточкаПрогнозВремя.innerHTML = valTime
         
         поискКарточкиПрогноза.append(карточкаПрогнозВремя)
     }
@@ -154,6 +177,17 @@ function showWather (){
     url = 'https://api.openweathermap.org/data/2.5/weather?q=' + citi +'&units=metric&lang=ru&appid=2e86a32f9d29e13d3916a7ca8be036ad'
     checkWeather()
     document.querySelector('#searchField').value = ''
+}
+
+function getWeekDay (date) {
+    let days = ['Воскресенье', 
+                'Понедельник', 
+                'Вторник', 
+                'Среда', 
+                'Четверг', 
+                'Пятница', 
+                'Суббота'];
+    return days[date.getDay()]
 }
 
 export  {
